@@ -222,30 +222,29 @@ Here's a summary of the differences between lists and tuples:
 
 ### Summary Sequences
 
+| Data Type   | Mutability  | Order      | Duplicates  | Index/Slice | Membership | Memory | Syntax   |
+|-------------|-------------|------------|-------------|-------------|------------|--------|----------|
+| Dict        | Mutable     | Unordered  | No          | Key-based   | Key-based  | Mod    | `{}`     |
+| List        | Mutable     | Ordered    | Yes         | Index-based | Value-based| High   | `[]`     |
+| Array       | Mutable*    | Ordered    | Yes         | Index-based | Value-based| Type   | `array()`|
+| Tuple       | Immutable   | Ordered    | Yes         | Index-based | Value-based| Low    | `()`     |
+| NamedTuple  | Immutable   | Ordered    | Yes         | Index-based | Value-based| Low    | `namedtuple()` |
+| NamedTuple* | Immutable   | Ordered    | Yes         | Index-based | Value-based| Low    | `typing.NamedTuple` |
+| NamedTuple* | Mutable     | Ordered    | Yes         | Index-based | Value-based| Low    | `typing.NamedTuple` |
+| Set         | Mutable     | Unordered  | No          | Not support| Value-based| Mod    | `{}`     |
+| Frozenset   | Immutable   | Unordered  | No          | Not support| Value-based| Low    | `frozenset()` |
+| Deque       | Mutable     | Ordered    | Yes         | Index-based | Value-based| High   | `deque()`|
+| Counter     | Mutable     | Unordered  | Yes         | Key-based   | Key-based  | High   | `Counter()` |
+| DefaultDict | Mutable     | Unordered  | Yes         | Key-based   | Key-based  | High   | `defaultdict()` |
+| OrderedDict | Mutable     | Ordered    | Yes         | Index-based | Key-based  | High   | `OrderedDict()` |
+| ChainMap    | Immutable   | NA         | NA          | Key-based   | Key-based  | Mod    | `ChainMap()` |
+| UserDict    | Mutable     | NA         | Yes         | Key-based   | Key-based  | High   | `UserDict()` |
+| UserList    | Mutable     | NA         | Yes         | Index-based | Value-based| High   | `UserList()` |
+| UserString  | Mutable     | NA         | Yes         | Index-based | Value-based| High   | `UserString()` |
+| DefaultList | Mutable     | Ordered    | Yes         | Index-based | Value-based| High   | `defaultlist()` |
+| Bidict      | Mutable     | Unordered  | No          | Key-based   | Key-based  | High   | `bidict()` |
+| ExList      | Mutable     | NA         | Yes         | Index-based | Value-based| High   | `exlist()` |
 
-| Data Type     | Mutability  | Order        | Duplicates  | Indexing/Slicing | Membership Test | Memory Consumption | Syntax               |
-|---------------|-------------|--------------|-------------|------------------|-----------------|---------------------|----------------------|
-| Dictionary    | Mutable     | Unordered    | Not allowed | Key-based access | Key-based       | Moderate            | Curly braces `{}`    |
-| List          | Mutable     | Ordered      | Allowed     | Index-based access | Value-based    | More                | Square brackets `[]` |
-| Array         | Mutable*    | Ordered      | Allowed     | Index-based access | Value-based    | Dependent on type  | `array.array()`      |
-| Tuple         | Immutable   | Ordered      | Allowed     | Index-based access | Value-based    | Less                | Parentheses `()`     |
-| Namedtuple    | Immutable   | Ordered      | Allowed     | Index-based access | Value-based    | Less                | `collections.namedtuple()` |
-| NamedTuple*   | Immutable   | Ordered      | Allowed     | Index-based access | Value-based    | Less                | `typing.NamedTuple` |
-| NamedTuple*   | Mutable     | Ordered      | Allowed     | Index-based access | Value-based    | Less                | `typing.NamedTuple` |
-| Set           | Mutable     | Unordered    | Not allowed | Not supported    | Value-based    | Moderate            | Curly braces `{}`    |
-| Frozenset     | Immutable   | Unordered    | Not allowed | Not supported    | Value-based    | Less                | `frozenset()`        |
-| Array         | Mutable*    | Ordered      | Allowed     | Index-based access | Value-based    | Dependent on type  | `array.array()`      |
-| Deque         | Mutable     | Ordered      | Allowed     | Index-based access | Value-based    | More                | `collections.deque()` |
-| Counter       | Mutable     | Unordered    | Allowed     | Key-based access | Key-based       | More                | `collections.Counter()` |
-| DefaultDict   | Mutable     | Unordered    | Allowed     | Key-based access | Key-based       | More                | `collections.defaultdict()` |
-| OrderedDict  | Mutable     | Ordered      | Allowed     | Index-based access | Key-based       | More                | `collections.OrderedDict()` |
-| ChainMap      | Immutable   | Not applicable | Not applicable | Key-based access | Key-based       | Moderate            | `collections.ChainMap()` |
-| UserDict      | Mutable     | Not applicable | Allowed     | Key-based access | Key-based       | More                | `collections.UserDict()` |
-| UserList      | Mutable     | Not applicable | Allowed     | Index-based access | Value-based    | More                | `collections.UserList()` |
-| UserString    | Mutable     | Not applicable | Allowed     | Index-based access | Value-based    | More                | `collections.UserString()` |
-| DefaultList   | Mutable     | Ordered      | Allowed     | Index-based access | Value-based    | More                | `collections.defaultlist()` |
-| Bidict        | Mutable     | Unordered    | Not allowed | Key-based access | Key-based       | More                | `bidict.bidict()`    |
-| ExList        | Mutable     | Not applicable | Allowed     | Index-based access | Value-based    | More                | `exlist.ExList()`    |
 
 Note:
 - *Arrays in Python can be represented using the built-in `array` module. The mutability of arrays depends on their specific type (e.g., `'i'` for integers). Lists are more commonly used for general-purpose sequences.
