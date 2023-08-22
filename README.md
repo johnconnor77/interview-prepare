@@ -7,6 +7,8 @@ Brief project description.
 - [Fundamentals of Data Types in Programming with Python](#fundamentals-of-data-types-in-programming-with-python)
   - [Mutable and Inmutable Data Types](#mutable-and-inmutable-data-types)
   - [Lists vs Sets](#lists-vs-sets)
+  - [Lists vs Tuples](#lists-vs-tuples)
+  - [Summary Sequences](#summary-sequences)
 - [Python Core Fundamentals](#python-core-fundamentals)
 - [Object Oriented Programming Concepts](#object-oriented-programming-concepts)
 - [Memory Management in Python](#memory-management-in-python)
@@ -157,14 +159,103 @@ Use Cases:
     Use sets when you need to store a collection of unique elements and perform fast membership tests. Sets are useful for removing duplicates from a collection and performing set operations like union, intersection, and difference.
 
 Here's a summary of the differences between lists and sets:
-Aspect	Lists	Sets
-Order	Ordered	Unordered
-Duplicates	Allowed	Not allowed
-Indexing/Slicing	Supported	Not supported
-Mutability	Mutable	Mutable
-Syntax	Square brackets ([])	Curly braces ({}) or set() constructor
+
+| Aspect             | Lists                 | Sets                   |
+|--------------------|-----------------------|------------------------|
+| Order              | Ordered               | Unordered              |
+| Duplicates         | Allowed               | Not allowed            |
+| Indexing/Slicing   | Supported             | Not supported         |
+| Mutability         | Mutable               | Mutable                |
+| Syntax             | Square brackets (`[]`) | Curly braces (`{}`) or `set()` constructor |
+
 
 Choose the appropriate data structure based on your specific use case and the characteristics you need for your program.
+
+
+### Lists vs Tuples 
+
+Lists:
+
+    Mutability: Lists are mutable, meaning you can change their contents after creation. You can add, remove, or modify elements within a list.
+    Order: Lists are ordered collections, meaning the elements are stored in the order they are added.
+    Duplicates: Lists can contain duplicate elements. You can have the same value appear multiple times in a list.
+    Indexing and Slicing: Lists allow indexing and slicing. You can access elements using their index positions and extract subsequences using slicing.
+    Memory Consumption: Lists tend to consume more memory compared to tuples due to the overhead associated with their mutability and additional methods.
+    Syntax: Lists are defined using square brackets ([]), and elements are separated by commas.
+
+Example:
+
+python
+
+my_list = [1, 2, 3, 2, 4]
+
+Tuples:
+
+    Immutability: Tuples are immutable, meaning their contents cannot be changed after creation. Once a tuple is created, its elements cannot be modified, added, or removed.
+    Order: Tuples are ordered collections, similar to lists. The order of elements in a tuple is preserved.
+    Duplicates: Tuples can contain duplicate elements, similar to lists.
+    Indexing and Slicing: Tuples allow indexing and slicing, just like lists.
+    Memory Consumption: Tuples tend to consume less memory compared to lists due to their immutability and lack of additional methods.
+    Syntax: Tuples are defined using parentheses () and elements are separated by commas.
+
+Example:
+
+python
+
+my_tuple = (1, 2, 3, 2, 4)
+
+Use Cases:
+
+    Use lists when you need a collection that may change, where you want to perform operations like adding, removing, or modifying elements.
+    Use tuples when you want to store a collection of items that should not change, like coordinates, database records, or function return values.
+
+Here's a summary of the differences between lists and tuples:
+
+| Aspect             | Lists                 | Tuples                 |
+|--------------------|-----------------------|------------------------|
+| Mutability         | Mutable               | Immutable              |
+| Order              | Ordered               | Ordered                |
+| Duplicates         | Allowed               | Allowed                |
+| Indexing/Slicing   | Supported             | Supported              |
+| Memory Consumption | More                  | Less                   |
+| Syntax             | Square brackets (`[]`) | Parentheses `()`       |
+
+### Summary Sequences
+
+
+| Data Type     | Mutability  | Order        | Duplicates  | Indexing/Slicing | Membership Test | Memory Consumption | Syntax               |
+|---------------|-------------|--------------|-------------|------------------|-----------------|---------------------|----------------------|
+| Dictionary    | Mutable     | Unordered    | Not allowed | Key-based access | Key-based       | Moderate            | Curly braces `{}`    |
+| List          | Mutable     | Ordered      | Allowed     | Index-based access | Value-based    | More                | Square brackets `[]` |
+| Array         | Mutable*    | Ordered      | Allowed     | Index-based access | Value-based    | Dependent on type  | `array.array()`      |
+| Tuple         | Immutable   | Ordered      | Allowed     | Index-based access | Value-based    | Less                | Parentheses `()`     |
+| Namedtuple    | Immutable   | Ordered      | Allowed     | Index-based access | Value-based    | Less                | `collections.namedtuple()` |
+| NamedTuple*   | Immutable   | Ordered      | Allowed     | Index-based access | Value-based    | Less                | `typing.NamedTuple` |
+| NamedTuple*   | Mutable     | Ordered      | Allowed     | Index-based access | Value-based    | Less                | `typing.NamedTuple` |
+| Set           | Mutable     | Unordered    | Not allowed | Not supported    | Value-based    | Moderate            | Curly braces `{}`    |
+| Frozenset     | Immutable   | Unordered    | Not allowed | Not supported    | Value-based    | Less                | `frozenset()`        |
+| Array         | Mutable*    | Ordered      | Allowed     | Index-based access | Value-based    | Dependent on type  | `array.array()`      |
+| Deque         | Mutable     | Ordered      | Allowed     | Index-based access | Value-based    | More                | `collections.deque()` |
+| Counter       | Mutable     | Unordered    | Allowed     | Key-based access | Key-based       | More                | `collections.Counter()` |
+| DefaultDict   | Mutable     | Unordered    | Allowed     | Key-based access | Key-based       | More                | `collections.defaultdict()` |
+| OrderedDict  | Mutable     | Ordered      | Allowed     | Index-based access | Key-based       | More                | `collections.OrderedDict()` |
+| ChainMap      | Immutable   | Not applicable | Not applicable | Key-based access | Key-based       | Moderate            | `collections.ChainMap()` |
+| UserDict      | Mutable     | Not applicable | Allowed     | Key-based access | Key-based       | More                | `collections.UserDict()` |
+| UserList      | Mutable     | Not applicable | Allowed     | Index-based access | Value-based    | More                | `collections.UserList()` |
+| UserString    | Mutable     | Not applicable | Allowed     | Index-based access | Value-based    | More                | `collections.UserString()` |
+| DefaultList   | Mutable     | Ordered      | Allowed     | Index-based access | Value-based    | More                | `collections.defaultlist()` |
+| Bidict        | Mutable     | Unordered    | Not allowed | Key-based access | Key-based       | More                | `bidict.bidict()`    |
+| ExList        | Mutable     | Not applicable | Allowed     | Index-based access | Value-based    | More                | `exlist.ExList()`    |
+
+Note:
+- *Arrays in Python can be represented using the built-in `array` module. The mutability of arrays depends on their specific type (e.g., `'i'` for integers). Lists are more commonly used for general-purpose sequences.
+- `NamedTuple` refers to the named tuple functionality provided by both the `collections.namedtuple()` and `typing.NamedTuple` approaches.
+- `NamedTuple*` includes both `typing.NamedTuple` with mutable and immutable variants.
+- This table covers various data types and classes from the `collections` module and other third-party libraries.
+
+Feel free to customize the table to suit your documentation's style and formatting preferences.
+
+
 
 ## Python Core Fundamentals
 
